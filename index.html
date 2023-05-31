@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133407883-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-133407883-1');
+</script>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css">
+  <title>Memory Game</title>
+</head>
+<body>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- display-3 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4863610057003851"
+     data-ad-slot="9623357933"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<style>
+  .container{
+    width: 600px;
+    margin:auto;
+    background-color: lightgrey;
+    
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .icon-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .show {
+    visibility: visible !important;
+    opacity: 100 !important;
+  }
+  
+  
+  #griglia > div{
+    margin: 20px 10px;
+    width: 120px;
+    height: 120px;
+    background-color: #ffc83d;
+    border: 1px solid #3889c4;
+    border-radius: 10px;
+  
+  }
+  
+  .timer {
+    padding: 10px 0;
+  }
+  
+  .icon {
+    font-size: 80px;
+    text-align: center;
+    visibility: visible !important;
+    opacity:0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .disabled {
+    pointer-events: none;
+    cursor:wait;
+  }
+  
+  .show {
+    animation-name: rotazione-carta;
+    animation-duration: .5s;
+    background-color:white;
+    border: 1px solid #3889c4;
+    border-radius: 10px;
+  }
+  
+  .find {
+    animation-name: indovinato;
+    animation-duration: .5s;
+    background-color:#3889c4;
+    border: 1px solid #3889c4;
+    border-radius: 10px;
+  }
+  
+  .button{
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ffc83d;
+    border: 1px solid #3889c4;
+    border-radius: 5px;
+  }
+  
+  .button:hover{
+    background-color: #16486c;
+    border:none;
+  }
+  
+  #modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+  #modal.active {
+    display: flex;
+  }
+  
+  #modal h2 {
+    margin-top: 20px;
+  }
+    
+  
+  @media (max-width: 600px) {
+	.container {
+		width: 400px;
+	}
+
+	#griglia > div{
+		margin: 5px 5px;
+		width: 70px;
+		height: 70px;
+	}
+	.icon {
+		font-size: 60px;
+
+	}
+}
+
+@media (max-width: 420px) {
+	.container {
+		width: 230px;
+	}
+
+	#griglia > div{
+		margin: 5px 5px;
+		width: 40px;
+		height: 40px;
+	}
+	.icon {
+		font-size: 20px;
+
+	}
+}
+  
+  @keyframes indovinato { 
+    from { 
+      transform: rotate(0deg);
+      
+      } 
+      to { 
+          transform: rotate(360deg);
+         
+      }
+  }
+  
+  @keyframes rotazione-carta {
+    from {
+      transform: perspective(300px) rotate3d(0, 1, 0, 80deg);
+      animation-timing-function: ease-in;
+    }
+  
+    50% {
+      transform: perspective(300px) rotate3d(0, 1, 0, -10deg);
+      animation-timing-function: ease-in;
+    }
+  
+    to {
+      transform: perspective(300px);
+      animation-timing-function: ease-in;
+    }
+    
+  }
+  
+  </style>
+  
+  <div class="container icon-grid" id="griglia">    
+    </div>
+    <div class="container text-center">  
+      <input type="button" id="button" class="button" onclick=startGame() value="Ricomincia">
+      <div class="timer">Tempo: 0 min 0 sec</div>  
+    </div>
+  
+    <div id="modal">      
+      <div class="content">
+          <h2>Congratulazioni hai risolto il gioco in </h2>
+          <p><span id=tempoTrascorso> </span> </p>
+          <p><input type="button" class="button" onclick=playAgain() value="Gioca Ancora!"></p>
+      </div>        
+    </div>
+  
+  <script src="game.js"></script>
+</body>
+</html>
+
+
+  
+  
+  
